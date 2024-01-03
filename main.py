@@ -5,12 +5,13 @@ from streamlit_lottie import st_lottie
 #configurations
 st.set_page_config(page_title="Kurts Webpage", page_icon=":wave:", layout="wide")
 
-with st.container():
-    st.subheader("Welcome, User! :wave:")
-    st.title("Cyber Security Analsyt | Aspiring Python Developer")
-    st.write("With over 5 years of Security Experience, i am looking to enhance security workloads using Python automation, as well as enhancing research capabilities.")
-    st.write("[My Github](https://www.github.com/artichokeX)")
-
+def heads():
+    with st.container():
+        st.subheader("Welcome, User! :wave:")
+        st.title("Cyber Security Analsyt | Aspiring Python Developer")
+        st.write("With over 5 years of Security Experience, i am looking to enhance security workloads using Python automation, as well as enhancing research capabilities.")
+        st.write("[My Github](https://www.github.com/artichokeX)")
+heads()
 
 #get lottie
 def loadlotti(url):
@@ -27,7 +28,7 @@ animation = loadlotti("https://lottie.host/484a6017-6547-4bc5-ab11-74d247af9a3b/
 
 #lists of random data
 with st.container():
-    st.write("---")
+    st.divider()
     left,right = st.columns(2)
     
     with left:
@@ -44,3 +45,19 @@ with st.container():
         
     with right:
         st_lottie(animation, height=300, key="security")
+       
+with st.container():
+    st.divider()
+    left,right = st.columns(2)
+    
+    with left:
+        number = st.slider('Squared')
+        st.write(number, 'Squarded is', number * number)
+    
+    with right:
+        name = st.text_input('Your name', key='Name')
+        
+        if name:
+            st.write(f'Hello {name}!')
+            
+        
