@@ -1,6 +1,8 @@
 import requests
 import streamlit as st 
 from streamlit_lottie import st_lottie
+import json
+
 
 #configurations
 st.set_page_config(page_title="Kurts Webpage", page_icon=":wave:", layout="wide")
@@ -60,4 +62,23 @@ with st.container():
         if name:
             st.write(f'Hello {name}!')
             
+
+# some JSON:
+x =  '{ "name":"John", "age":30, "city":"New York"}'
+y =  '{ "name":"Jane", "age":30, "city":"Columbus"}'
+
+def jsonData(b, query):
+    try:
+        data = json.loads(b)
+        return data.get(query, "Query not found")
+    except json.JSONDecodeError:
+        return "Invalid JSON input"
+         
+with st.container():
+    st.divider()
+    left,right = st.columns(2)
         
+    with left:
+        st.write(jsonData(x, "age"))
+    with right:
+        st.write(jsonData(y, "city"))
