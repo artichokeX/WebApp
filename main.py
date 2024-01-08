@@ -82,3 +82,15 @@ with st.container():
         st.write(jsonData(x, "age"))
     with right:
         st.write(jsonData(y, "city"))
+
+#this could be useful       
+option = st.selectbox('How would you like to be contacted?',('','Email', 'Home phone', 'Mobile phone'))
+
+match option:
+    case 'Email':
+        st.write(jsonData(x))
+    case 'Home phone':
+        st.write(jsonData(x,'age')) 
+    case 'Mobile phone':
+        st.write(jsonData(y)) 
+    
